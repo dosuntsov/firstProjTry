@@ -21,6 +21,7 @@ public class AuthPage {
     private void enterPassword(String userPassword){
         driver.findElement(passwordInput).sendKeys(userPassword);
     }
+
     public void userAuth(String userPassword, String userName){
         enterLogin(userName);
         enterPassword(userPassword);

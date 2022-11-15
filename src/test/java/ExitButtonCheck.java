@@ -9,8 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.AuthPage;
 import pageObject.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pageObject.RefreshAndWait;
-
 
 @RunWith(Parameterized.class)
 
@@ -29,7 +27,7 @@ public class ExitButtonCheck {
     @Parameterized.Parameters
     public static Object[][] getUserInfo() {
         return new Object[][]{
-                {"test_top","test_top1"},
+                {"test_top","test_top"},
                 {"test_gis","test_gis"},
                 {"user_001","user_001"},
                 {"user_002","user_002"},
@@ -60,13 +58,8 @@ public class ExitButtonCheck {
         AuthPage objAuthPage = new AuthPage(driver);
         objAuthPage.userAuth(userName,userPassword);
 
-        RefreshAndWait objRefresherWaiter = new RefreshAndWait(driver);
-        objRefresherWaiter.refreshAndWait();
-
         MainPage objMainPage = new MainPage(driver);
         objMainPage.checkButtonExist();
-
-
 
         Assert.assertFalse("Строка должна отсутствовать", objMainPage.checkButtonExist());
 
@@ -82,10 +75,3 @@ public class ExitButtonCheck {
         WebDriverManager.chromedriver().setup();
     }
 }
-
-
-
-
-
-
-
