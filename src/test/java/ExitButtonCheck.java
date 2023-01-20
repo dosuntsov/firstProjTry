@@ -53,7 +53,7 @@ public class ExitButtonCheck {
     public void checkIfExitButtonIsEnabled(){
         driver = new ChromeDriver();
 
-        driver.get("http://dev-portal.spb.luxms.com/");
+        driver.get("http://dev-portal.ci-test.luxms.com/");
 
         AuthPage objAuthPage = new AuthPage(driver);
         objAuthPage.userAuth(userName,userPassword);
@@ -61,7 +61,7 @@ public class ExitButtonCheck {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.checkButtonExist();
 
-        Assert.assertFalse("Строка должна отсутствовать", objMainPage.checkButtonExist());
+        Assert.assertFalse("Кнопка должна отсутствовать", objMainPage.checkButtonExist());
 
     }
     @After
